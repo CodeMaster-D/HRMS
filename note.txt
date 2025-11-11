@@ -1,0 +1,123 @@
+
+permission atau fitur bisa di atur di superadmin
+page superadmin
+apa aja yg bisa di atur superadmin 
+manajemen data manager login bikin sama kaya karyawan
+laporan semua ekspor word txt excel pdf
+
+owner bisa lihat laporan gaji dan kehadiran kaya di manager
+page supervisor kaya manager tapi ngurus prestasi peforma = absensi , prestasi pencapaian target
+owner bisa ngasih target untuk prestasi per divisi - > dashboard user -> masukkakn laporan target word excel pdf txt -> role lain buat di approve -> progres bar nyala 
+custom role super admin
+page gaji dashboard userfix tensorflow
+jarak absensi 5-10 meter bisa input custom lokasi dari owner
+ekspor slip gaji dari karyawan  
+face lock sistem kaya andro jadi pertama kali dia masuk nah itu daftar muka dulu dan ai nya bakal detect pas wfh 
+kedip kedip face detection
+tanggal dan judul dibagian absensi , serta cuti berkurang kalau di aprove sama manager
+logic pengurangan gaji , terlambat  
+responsif
+single page , semua kecuali profile
+
+- Page Laporan kerja input judul sama file pdf excel word 
+- Page Performa kerja bekerja kalau si manager approve
+
+peforma di nilai dari kehadiran sama target 
+
+prioritaskan dari yang atas dulu
+lokasi di owner harus bisa di liat detail list siapa itu yang di foto
+
+di manajemen karawan semua datanya harus lengkap
+training ai biar makin akurat untuk muka , jadi kalau mata aja ga bisa 
+detail kamera wajah tertutup atau kamera ga di kasi izin
+terlambat absensi waktu , sama alert ga bisa absen pulang sebelum waktu pulang yang telah di tentukan oleh owner bisa sih tapi di hitung jam kerjanya sesuai dia clock out dan berpengaruh ke peforma karyawan
+gaji sama laporan sama peforma di owner dashboard
+owner bisa atur jam masuk dan jam pulang
+jangan apa yg di lakukan aksi selanjutnya jangan selsai , buat selesai jika target telah di kirim dan telah di approve , kalau masih pending buat aksi sekarang itu menunggu , kalau dia blm ngelakuin apa apa buat aksi selanjutnya itu untuk mengerjakan apa yang bosnya targetkan
+buat datanya lengkap / keterangan datanya id nama divisi tanggal gabung nama email no telp sisa cuti
+harus approve manager seluruh perubahan profile karyawan
+manager bisa atur profile nama divisi email telepon tgl gabung
+perbaiki bug cuti
+perbaiki bug ekspor
+tugas karyawan itu di approve supervisor 
+profile input NIK 
+owner bisa input lokasi 
+fitur absensi lokasi ga bisa lebih dari 5-10 meter
+supervisor bisa absen
+manager bisa liat peforma
+owner atur jam pulang itu berfungsi
+akurasi 20-30
+sweet alert pastikan data anda sudah benar
+selesai ubah jadi task selanjutnya
+fix bug cuti dia berkurang kalau uda di approve
+perbaiki bug cuti
+tensorflow harus berfungsi mendeteksi 1 muka aja 
+absen manager ada tensorflow juga ada lokasi dan waktu 
+work tugas dari owner ke karyawan dan bisa di terima dan masuk ke peforma
+ganti inactive jadi cuti
+buat judul dan bisa di search ketika cuti
+frame kamera harus ada dan jangan ada blankpage setelah clock in , perbaiki alert clock in
+
+
+karyawan 
+absensi : pake ML fitur tambahan di wa. buat alasan terlambat sama cepat pulang , ga bisa absen kalau radius ga deket jarak yang di tentukan kecuali di tentukan ke kantor cabang lain dan di izinkan absen , owner ngasi lokasi kantor cabang , ada waktu dan nama cabang, absensi bisa kapan aja datang tapi di batasin dari jam 7 sampai jam 9 pagi , absen sesuai jam kerja, | owner bisa nentuin jam kerja masing masing karyawan - rencana
+profile : nik , nama , divisi , email, telepon, tanggal gabung , alamat, cv sama ijazah 
+cuti : judul cuti , jenis cuti tahunan dan sakit , jumlah hari , alasan / keterangan  dan kolom search history cuti bisa di cari dari key judul , ada sisa cuti dan pending permintaan
+performa : skor peforma , tugas yang selesai , tugas pending , ada daftar tugas owner , kolom search buat nyari tugas, target tercapai, perlu peningkatan 
+histori login : status terlambat / tepat waktu / pulang cepat 
+tambahan : absensi otomatis tertutup sesuai jam yang di tentukam , kalau ga clock out dia di beri waktu untuk mengisi alasan kenapa dia ga clock out 
+absensi : buat izin telat, cepat pulang
+izin cepat pulang dan terlambat , foto judul deskripsi -> manager approve kalau dia izin cepat pulang itu dia uda di hitung clock out dan masuk ke manager izinnya keterangan terlambat di buat jelas
+ekspor pdf nya jelas informasi pemotongan dll
+
+manager
+ringkasan : total karyawan, cuti pending, terlambat, aktifitas absen, karyawan aktif
+kelola tim : CRUD karyawan, create >; NIK, nama, divisi, email, nomor telepon, alamat. read >; lihat data. update>; edit semua data kec cv sama ijazah. delete>; hapus kolom search
+persetujuan cuti : judul, jenis cuti, lama hari, alasan / keterangan /bukti halangan -> file kalau sakit dan cuti biasa kolom search dan riwayat
+persetujuan profil : nama karyawan, sama apa yang mau di ubah
+laporan tambahan gaji : fitur tambahan naik gaji dan kejelasan pemotongan gaji bisa potong gaji, judul pemotongan, contohnya bpjs dan bisa milih karyawan siapa dan divisi mana
+laporan selfi karyawan : foto -> data detail {status cek in / out ; keterangan tepat waktu, telat, balik cepat, jam, nama lokasi, lon dan lan}
+tambah tab baru persetujuan absensi izin telat, izin cepat pulang
+absensi saya : sama kaya karyawan bisa ambil foto 
+profil : sama kaya karyawan beda divisi 
+manager bisa izin cuti juga dan di approve owner
+performa manager bisa
+salary
+lainnya di salaryreport itu di tambah input type text
+proses---
+
+supervisor
+ringkasan : total karyawan , total karyawan aktif , tugas yang di pending, terlambat (absensi perlu koreksi di hapus)
+persetujuan tugas : liat tugasnya -> detail tugas , approve / denied tambahkan kolom komentar approve / denied\
+persetujuan absensi : nama karyawan, divisi, status ( clock in / out ) keterangan ( terlambat / tepat waktu / pulang cepat )
+peforma : 
+
+owner:
+kenapa skor karyawan rendah itu tercatat semua kenapa, contoh daftar tugas yg blm dia siapkan masih ada atau tercatat
+
+
+security
+cari semua kerentanan dan ganti -> refrector code
+
+jarak kantor di ubah jadi sesuai keperluan
+
+
+
+NANTI 1 DASHBOARD AJA DAN TAMBAHKAN PERMISSION CHECKER HAPUS SEMUA DASHBOARD KECUALI DASHBOARD EMPLOYEE DAN DI SITU SEMUANYA DI PANGGIL
+file unievrsal : profil, team management; owner cuma bisa liat aja, absensi, cuti, performa, summary, pengaturan, payroll report, my salary, manajemen crud karyawan dan role lainnya  
+
+owner
+bisa kasi tugas ke masing masing karyawan
+
+formatters js harus di update
+
+tugas role manager di kirim ke si owner
+
+checkerpermission
+responsif kamera hp 
+setelah habis jam terlambat itu clockinnya di disabled 
+
+tab tambabhan lupa login/clockout
+kalau lupa clock in dan lewat jam terlambat itu button clockinnya di disable dan si button clockoutnya di enable
+
+filter divisi di manager payroll report
