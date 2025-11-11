@@ -20,10 +20,10 @@ export const DUMMY_AUTH = {
       username: 'karyawan', 
       password: 'password', 
       role: 'employee', 
-      name: 'Djob Misael', 
+      name: 'asep', 
       division: 'Tech',
-      profileImage: 'https://picsum.photos/seed/djob/200/200.jpg',
-      email: 'djob.misael@company.com',
+      profileImage: 'https://picsum.photos/seed/asep/200/200.jpg',
+      email: 'asep@company.com',
       phone: '081211112222',
       joinDate: '2023-01-15',
       cutiBalance: 12,
@@ -33,7 +33,7 @@ export const DUMMY_AUTH = {
           { time: '2024-10-13 08:05', method: 'Password' },
       ],
       currentMonthAttendance: [
-          // Data dummy absensi bulan ini (Contoh: Absensi Djob Misael)
+          // Data dummy absensi bulan ini (Contoh: Absensi asep )
           { id: 1001, date: '2024-10-13', time: '08:05', type: 'Clock In', status: 'Completed', location: 'Office Jln. Sudirman', isLate: false, isEarlyLeave: false },
           { id: 1002, date: '2024-10-13', time: '17:00', type: 'Clock Out', status: 'Completed', location: 'Office Jln. Sudirman', isLate: false, isEarlyLeave: false },
           // ... tambahkan lebih banyak data absensi di file lama jika ada ...
@@ -48,7 +48,7 @@ export const DUMMY_AUTH = {
 
 // --- Data Dummy Pegawai (INITIAL_EMPLOYEES) ---
 export const INITIAL_EMPLOYEES = [
-    // Pegawai 1: (Detail sama dengan Djob Misael di atas, tapi dengan ID yang beda)
+    // Pegawai 1: (Detail sama dengan asep di atas, tapi dengan ID yang beda)
     {
         id: 1,
         name: 'John Doe',
@@ -170,7 +170,7 @@ export const INITIAL_PENDING_TASKS = [
     {
         id: 1,
         employeeId: 101,
-        employeeName: 'Djob Misael',
+        employeeName: 'asep',
         division: 'Tech',
         taskTitle: 'Integrasi API Geolocation',
         description: 'Selesaikan integrasi API Geolocation ke DataService.',
@@ -198,7 +198,7 @@ export const INITIAL_PENDING_ATTENDANCE = [
     {
         id: 1,
         employeeId: 101,
-        employeeName: 'Djob Misael',
+        employeeName: 'asep',
         division: 'Tech',
         requestType: 'Missed Clock-Out',
         requestedDate: '2024-10-09',
