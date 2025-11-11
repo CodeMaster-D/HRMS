@@ -1,7 +1,5 @@
 
 
-Tentu, berdasarkan informasi yang Anda berikan, saya akan menyusun sebuah file `README.md` yang lengkap, profesional, dan terstruktur. File ini tidak hanya mencakup panduan setup, tetapi juga menjelaskan arsitektur, fitur unggulan, dan konsep inti dari proyek Anda, sehingga sesuai dengan deskripsi "sophisticated" yang Anda berikan.
-
 ---
 
 # Human Resource Management System : Real-time Attendance & Permit Management
@@ -12,40 +10,39 @@ Tentu, berdasarkan informasi yang Anda berikan, saya akan menyusun sebuah file `
 
 A sophisticated and lightweight HRMS frontend built with React and Vite, designed for modern workforce management. This application showcases advanced frontend engineering with a multi-layer real-time authentication system, integrating client-side Computer Vision (CV) via MediaPipe/TensorFlow for mandatory biometric selfie attendance and precise geolocation radius checks for CLOCK IN/OUT operations.
 
-## 📚 Table of Contents
+## Table of Contents
 
-- [✨ Key Features](#-key-features)
-- [🚀 Getting Started](#-getting-started)
+- [Key Features](#key-features)
+- [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
   - [Running the Development Server](#running-the-development-server)
   - [Building for Production](#building-for-production)
-- [📸 Screenshots / Demo](#-screenshots--demo)
-- [🏗️ Project Structure & Architecture](#️-project-structure--architecture)
-- [🧠 Core Concepts](#-core-concepts)
+- [Project Structure & Architecture](#project-structure--architecture)
+- [Core Concepts](#core-concepts)
   - [Biometric Authentication Flow](#biometric-authentication-flow)
   - [Geolocation Verification](#geolocation-verification)
   - [Role-Based Access Control (RBAC)](#role-based-access-control-rbac)
-- [🛠️ For Developers](#️-for-developers)
-- [🤝 Contributing](#-contributing)
-- [📄 License](#-license)
+- [For Developers](#for-developers)
+- [Contributing](#contributing)
+- [License](#license)
 
 ---
 
-## ✨ Key Features
+## Key Features
 
--   🔐 **Biometric Selfie Attendance**: Mandates face detection using client-side ML models (MediaPipe/TensorFlow) to ensure the right person is clocking in/out.
--   📍 **Geolocation Radius Check**: Verifies that the user is within a predefined office radius before allowing attendance submission, preventing remote check-ins.
--   👥 **Role-Based UI (RBAC)**: Dynamically renders components and features based on user roles (Employee, Supervisor, Manager, Owner), providing tailored experiences.
--   📝 **Permit Management**: A streamlined system for employees to submit and for supervisors/managers to approve leave and permit requests.
--   📊 **Reporting Dashboard**: (For Managers/Owners) View and generate reports on payroll and employee performance.
--   ⚡ **Modern Tech Stack**: Built with React for component-based UI and Vite for lightning-fast development and optimized builds.
--   🧩 **Modular Architecture**: A clean, scalable codebase organized around custom hooks (`useCamera`, `useAuth`, `useFaceDetection`) and reusable components.
--   🤖 **Edge ML Deployment**: Demonstrates the capability of running machine learning models directly in the user's browser for real-time inference.
+-   **Biometric Selfie Attendance**: Mandates face detection using client-side ML models (MediaPipe/TensorFlow) to ensure the right person is clocking in/out.
+-   **Geolocation Radius Check**: Verifies that the user is within a predefined office radius before allowing attendance submission, preventing remote check-ins.
+-   **Role-Based UI (RBAC)**: Dynamically renders components and features based on user roles (Employee, Supervisor, Manager, Owner), providing tailored experiences.
+-   **Permit Management**: A streamlined system for employees to submit and for supervisors/managers to approve leave and permit requests.
+-   **Reporting Dashboard**: (For Managers/Owners) View and generate reports on payroll and employee performance.
+-   **Modern Tech Stack**: Built with React for component-based UI and Vite for lightning-fast development and optimized builds.
+-   **Modular Architecture**: A clean, scalable codebase organized around custom hooks (`useCamera`, `useAuth`, `useFaceDetection`) and reusable components.
+-   **Edge ML Deployment**: Demonstrates the capability of running machine learning models directly in the user's browser for real-time inference.
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 Follow these instructions to get a copy of the project up and running on your local machine for development and testing purposes.
 
@@ -92,7 +89,7 @@ npm run preview
 
 ---
 
-## 📸 Screenshots / Demo
+## Screenshots / Demo
 
 > **Penting:** Tambahkan screenshot atau GIF di sini untuk menunjukkan tampilan aplikasi. Contoh:
 >
@@ -103,7 +100,7 @@ npm run preview
 
 ---
 
-## 🏗️ Project Structure & Architecture
+## Project Structure & Architecture
 
 The project follows a modular and scalable architecture. State management is handled primarily by custom hooks, and UI is split into role-specific components.
 
@@ -139,7 +136,7 @@ hrms-frontend/
 
 ---
 
-## 🧠 Core Concepts
+## Core Concepts
 
 ### Biometric Authentication Flow
 
@@ -167,7 +164,7 @@ The `useAuth` hook is the central point for managing user state. It typically st
 
 ---
 
-## 🛠️ For Developers
+## For Developers
 
 -   **Data Persistence**: For demo purposes, user data and attendance records are stored in `localStorage`. For a production environment, you **must** replace the functions in `src/services/DataService.js` with actual HTTP requests (e.g., using `axios` or `fetch`) to your backend API.
 -   **ML Model Loading**: The face detection model is loaded on the client-side. Be mindful of the model's file size as it can impact the initial application load time. Consider using a lighter model or implementing a loading state.
@@ -179,7 +176,7 @@ The `useAuth` hook is the central point for managing user state. It typically st
 
 ---
 
-## 🤝 Contributing
+## Contributing
 
 Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
@@ -191,7 +188,7 @@ Contributions are what make the open-source community such an amazing place to l
 
 ---
 
-## 📄 License
+## License
 
 Distributed under the MIT License. See `LICENSE` for more information.
 
