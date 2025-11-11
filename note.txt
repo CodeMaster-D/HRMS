@@ -26,6 +26,7 @@ peforma di nilai dari kehadiran sama target
 
 prioritaskan dari yang atas dulu
 lokasi di owner harus bisa di liat detail list siapa itu yang di foto
+test
 
 di manajemen karawan semua datanya harus lengkap
 training ai biar makin akurat untuk muka , jadi kalau mata aja ga bisa 
