@@ -1,78 +1,78 @@
-# Panduan Kontribusi ke Human Resource Management System
+# Contribution Guide for Human Resource Management System
 
-Selamat datang di panduan kontribusi untuk proyek "Human Resource Management System : Real-time Attendance & Permit Management". Kami sangat senang Anda tertarik untuk berkontribusi pada pengembangan sistem manajemen sumber daya manusia yang modern ini!
+Welcome to the contribution guide for the "Human Resource Management System: Real-time Attendance & Permit Management" project. We're delighted that you're interested in contributing to the development of this modern human resource management system!
 
-## Kode Etik
+## Code of Conduct
 
-Kami menerapkan Kode Etik yang diharapkan dipatuhi oleh semua peserta proyek. Mohon [baca teks lengkapnya](./CODE_OF_CONDUCT.md) agar Anda memahami tindakan-tindakan yang akan atau tidak akan ditoleransi.
+We have a Code of Conduct that we expect all project participants to adhere to. Please [read the full text](./CODE_OF_CONDUCT.md) to understand the actions that will and will not be tolerated.
 
-## Proses Pengembangan Kami
+## Our Development Process
 
-Kami menggunakan GitHub untuk melacak masalah (issues) dan permintaan fitur, serta sebagai tempat utama untuk menerima permintaan tarik (pull requests). Proses pengembangan kami berfokus pada kolaborasi terbuka untuk memastikan kualitas dan stabilitas aplikasi.
+We use GitHub to track issues and feature requests, and as our primary platform for receiving pull requests. Our development process focuses on open collaboration to ensure the quality and stability of the application.
 
-## Permintaan Tarik (Pull Requests)
+## Pull Requests
 
-Kami dengan penuh semangat menyambut permintaan tarik (pull requests) dari Anda, baik itu untuk perbaikan bug, penambahan fitur, maupun peningkatan dokumentasi. Untuk berkontribusi pada proyek ini, ikuti langkah-langkah di bawah ini:
+We enthusiastically welcome pull requests from you, whether for bug fixes, feature additions, or documentation improvements. To contribute to this project, please follow the steps below:
 
-1.  **Fork Repositori dan Buat Cabang**
+1.  **Fork the Repository and Create a Branch**
 
-    -   Fork repositori ini ke akun GitHub Anda.
-    -   Buatlah cabang baru dari branch `main` (atau `master`) di repositori Anda untuk setiap fitur atau perbaikan yang Anda kerjakan. Gunakan nama cabang yang deskriptif, misalnya: `feature/tambah-validasi-izin` atau `fix/perbaiki-modal-kamera`.
+    -   Fork this repository to your GitHub account.
+    -   Create a new branch from the `main` (or `master`) branch in your repository for each feature or fix you work on. Use a descriptive branch name, for example: `feature/add-permit-validation` or `fix/fix-camera-modal`.
 
-2.  **Lakukan Perubahan Kode**
+2.  **Make Your Code Changes**
 
-    -   Identifikasi area yang akan Anda ubah. Proyek ini memiliki struktur yang modular, perhatikan direktori berikut:
-        -   `src/components/`: Untuk perubahan atau penambahan komponen UI (misalnya, modal, tabel, formulir).
-        -   `src/hooks/`: Untuk perubahan pada logika yang dapat digunakan kembali, seperti `useAuth.js`, `useCamera.js`, atau `useFaceDetection.js`.
-        -   `src/services/`: Untuk modifikasi cara aplikasi berinteraksi dengan API (meskipun saat ini menggunakan data dummy, ini adalah tempat logika API akan berada).
-    -   Ikuti gaya dan pola kode yang sudah ada untuk menjaga konsistensi.
+    -   Identify the area you will be changing. This project has a modular structure, pay attention to the following directories:
+        -   `src/components/`: For changes or additions to UI components (e.g., modals, tables, forms).
+        -   `src/hooks/`: For changes to reusable logic, such as `useAuth.js`, `useCamera.js`, or `useFaceDetection.js`.
+        -   `src/services/`: For modifying how the application interacts with APIs (although it currently uses dummy data, this is where the API logic will reside).
+    -   Follow the existing code style and patterns to maintain consistency.
 
-3.  **Uji Perubahan Anda**
+3.  **Test Your Changes**
 
-    -   Jalankan server pengembangan untuk memastikan perubahan Anda tidak merusak fungsionalitas yang ada.
+    -   Run the development server to ensure your changes don't break existing functionality.
         ```bash
         npm run dev
         ```
-    -   Pastikan fitur yang Anda ubah berjalan dengan baik. Misalnya, jika Anda mengubah deteksi wajah, uji modal kamera. Jika Anda mengubah RBAC, uji dengan berbagai peran pengguna.
-    -   Jalankan perintah build untuk memastikan tidak ada kesalahan saat aplikasi dibuat untuk produksi.
+    -   Ensure the feature you changed works as expected. For example, if you changed face detection, test the camera modal. If you changed RBAC, test with different user roles.
+    -   Run the build command to ensure the application builds successfully for production.
         ```bash
         npm run build
         ```
 
-4.  **Commit, Push, dan Pull-Request**
+4.  **Commit, Push, and Open a Pull Request**
 
-    -   Lakukan commit perubahan Anda dengan pesan commit yang jelas dan deskriptif.
-    -   Push commit Anda ke cabang di repositori GitHub Anda.
-    -   Ajukan pull-request dari cabang Anda ke branch `main` di repositori ini. Berikan deskripsi yang jelas tentang apa yang Anda ubah dan mengapa perubahan itu diperlukan.
+    -   Commit your changes with a clear and descriptive commit message.
+    -   Push your commits to the branch in your GitHub repository.
+    -   Open a pull request from your branch to the `main` branch in this repository. Provide a clear description of what you changed and why the change is necessary.
 
-Kami akan melakukan review pada permintaan tarik yang diajukan dan merespons secepat mungkin. Terima kasih atas kontribusi Anda untuk membuat Human Resource Management System ini semakin baik!
+We will review the submitted pull requests and respond as soon as possible. Thank you for your contribution to making this Human Resource Management System even better!
 
-## Masalah (Issues)
+## Issues
 
-Kami menggunakan GitHub Issues untuk melacak bug publik dan permintaan fitur. Saat membuat isu baru, pastikan deskripsi Anda jelas dan memiliki informasi yang cukup untuk mereproduksi masalah. Jika memungkinkan, berikan langkah-langkah reproduksi, perilaku yang diharapkan, dan perilaku yang terjadi.
+We use GitHub Issues to track public bugs and feature requests. When creating a new issue, make sure your description is clear and contains enough information to reproduce the problem. If possible, provide steps to reproduce, the expected behavior, and the actual behavior.
 
-## Pengelolaan Masalah
+## Issue Management
 
-Berikut adalah beberapa label (tag) yang kami gunakan untuk mengatur masalah di repositori ini:
+Here are some of the labels (tags) we use to manage issues in this repository:
 
--   `good first issue`: Kandidat yang baik untuk kontributor baru dalam proyek ini.
--   `help wanted`: Masalah yang perlu ditangani dan kami menyambut permintaan tarik untuknya, tetapi mungkin memerlukan penyelidikan atau pekerjaan yang signifikan.
--   `bug`: Kesalahan atau perilaku yang tidak diinginkan dalam aplikasi.
--   `enhancement`: Permintaan untuk peningkatan fitur yang sudah ada.
--   `documentation`: Terkait peningkatan dokumentasi proyek (README, komentar kode, dll.).
--   `question`: Pertanyaan khusus untuk para pengelola atau komunitas.
+-   `good first issue`: Good candidates for new contributors to this project.
+-   `help wanted`: Issues that need to be addressed and we welcome pull requests for them, but may require significant investigation or work.
+-   `bug`: An error or undesired behavior in the application.
+-   `enhancement`: Request for an enhancement to an existing feature.
+-   `documentation`: Related to improving project documentation (README, code comments, etc.).
+-   `question`: Specific questions for the maintainers or the community.
 
-## Area Fokus Kontribusi
+## Contribution Focus Areas
 
-Proyek ini memiliki beberapa area teknis yang menantang. Kontribusi Anda sangat dihargai, terutama di area berikut:
+This project has several challenging technical areas. Your contributions are highly appreciated, especially in the following areas:
 
-1.  **Komponen UI/UX**: Meningkatkan desain, aksesibilitas, dan pengalaman pengguna pada komponen seperti formulir izin, dashboard, dan modal absensi.
-2.  **Logika Bisnis & Hooks**: Memperbaiki atau menambahkan fungsionalitas pada custom hooks seperti `useAuth` (manajemen peran), `useCamera` (integrasi kamera), dan `useFaceDetection` (integrasi ML).
-3.  **Integrasi Machine Learning**: Area yang paling kompleks. Bantuan dalam mengoptimalkan performa model deteksi wajah (MediaPipe/TensorFlow), menangani kasus edge (gagal deteksi), atau mengganti model dengan yang lebih ringan akan sangat berharga.
-4.  **Dokumentasi**: Membuat dokumentasi yang lebih mendalam, baik di dalam kode (komentar) maupun di luar kode (misalnya, panduan cara menambahkan peran baru atau cara kerja alur geolokasi).
+1.  **UI/UX Components**: Improving the design, accessibility, and user experience of components like permit forms, dashboards, and attendance modals.
+2.  **Business Logic & Hooks**: Fixing or adding functionality to custom hooks like `useAuth` (role management), `useCamera` (camera integration), and `useFaceDetection` (ML integration).
+3.  **Machine Learning Integration**: The most complex area. Help in optimizing the performance of the face detection model (MediaPipe/TensorFlow), handling edge cases (failed detection), or replacing it with a lighter model would be highly valuable.
+4.  **Documentation**: Creating more in-depth documentation, both within the code (comments) and outside the code (e.g., a guide on how to add a new role or how the geolocation flow works).
 
-Kami berkomitmen untuk menjaga kualitas dan keandalan sistem ini. Kontribusi Anda dalam memantau, melaporkan, atau membantu pengembangan akan sangat dihargai.
+We are committed to maintaining the quality and reliability of this system. Your contribution in monitoring, reporting, or helping with development is highly appreciated.
 
-## Lisensi
+## License
 
-Dengan berkontribusi pada Human Resource Management System, Anda setuju bahwa kontribusi Anda akan dilisensikan di bawah [Lisensi Apache 2.0](./LICENSE).
+By contributing to the Human Resource Management System, you agree that your contributions will be licensed under the [Apache 2.0 License](./LICENSE).
