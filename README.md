@@ -83,19 +83,6 @@ You can preview the production build locally with:
 npm run preview
 ```
 
----
-
-## Screenshots / Demo
-
-> **Penting:** Tambahkan screenshot atau GIF di sini untuk menunjukkan tampilan aplikasi. Contoh:
->
-> - *Dashboard Karyawan*
-> - *Modal Absensi Selfie*
-> - *Tabel Persetujuan Izin (Supervisor)*
-> - *Laporan Payroll (Manager)*
-
----
-
 ## Project Structure & Architecture
 
 The project follows a modular and scalable architecture. State management is handled primarily by custom hooks, and UI is split into role-specific components.
