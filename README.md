@@ -2,7 +2,7 @@
 
 [![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://reactjs.org/)
 [![Vite](https://img.shields.io/badge/Vite-B73BFE?style=for-the-badge&logo=vite&logoColor=FFD62E)](https://vitejs.dev/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 A sophisticated and lightweight HRMS frontend built with React and Vite, designed for modern workforce management. This application showcases advanced frontend engineering with a multi-layer real-time authentication system, integrating client-side Computer Vision (CV) via MediaPipe/TensorFlow for mandatory biometric selfie attendance and precise geolocation radius checks for CLOCK IN/OUT operations.
 
@@ -82,19 +82,6 @@ You can preview the production build locally with:
 ```bash
 npm run preview
 ```
-
----
-
-## Screenshots / Demo
-
-> **Penting:** Tambahkan screenshot atau GIF di sini untuk menunjukkan tampilan aplikasi. Contoh:
->
-> - *Dashboard Karyawan*
-> - *Modal Absensi Selfie*
-> - *Tabel Persetujuan Izin (Supervisor)*
-> - *Laporan Payroll (Manager)*
-
----
 
 ## Project Structure & Architecture
 
@@ -186,6 +173,6 @@ Contributions are what make the open-source community such an amazing place to l
 
 ## License
 
-Distributed under the MIT License. See `LICENSE` for more information.
+This project is licensed under the **Apache License 2.0**—see the **[LICENSE](LICENSE)** file for the full terms and the **[NOTICE](NOTICE)** file for copyright and attribution details.
 
 ---
