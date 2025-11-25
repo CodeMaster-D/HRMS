@@ -82,6 +82,10 @@ You can preview the production build locally with:
 ```bash
 npm run preview
 ```
+```login
+user      : karyawan, manager, owner, supervisor
+password  : password
+```
 
 ## Project Structure & Architecture
 
