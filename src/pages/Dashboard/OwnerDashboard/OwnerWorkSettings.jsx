@@ -109,6 +109,10 @@ const OwnerWorkSettings = ({ workSettings, setWorkSettings }) => {
             name: 'Day Shift',
             startTime: '08:00',
             endTime: '17:00',
+            clockInStart: '07:45',
+            clockInEnd: '08:15',
+            clockOutStart: '16:45',
+            clockOutEnd: '17:15',
             lateDeduction: 50000,
             earlyLeaveDeduction: 75000,
             days: ['monday', 'tuesday', 'wednesday', 'thursday', 'friday'], // Default to weekdays
@@ -119,6 +123,10 @@ const OwnerWorkSettings = ({ workSettings, setWorkSettings }) => {
             name: 'Night Shift',
             startTime: '22:00',
             endTime: '06:00',
+            clockInStart: '21:45',
+            clockInEnd: '22:15',
+            clockOutStart: '05:45',
+            clockOutEnd: '06:15',
             lateDeduction: 60000,
             earlyLeaveDeduction: 85000,
             days: ['monday', 'tuesday', 'wednesday', 'thursday', 'friday'], // Default to weekdays
@@ -160,6 +168,10 @@ const OwnerWorkSettings = ({ workSettings, setWorkSettings }) => {
             name: `Shift ${formData.shifts.length + 1}`,
             startTime: '09:00',
             endTime: '18:00',
+            clockInStart: '08:45',
+            clockInEnd: '09:15',
+            clockOutStart: '17:45',
+            clockOutEnd: '18:15',
             lateDeduction: 50000,
             earlyLeaveDeduction: 75000,
             days: ['monday', 'tuesday', 'wednesday', 'thursday', 'friday'], // Default to weekdays
@@ -306,6 +318,46 @@ const OwnerWorkSettings = ({ workSettings, setWorkSettings }) => {
                                         </div>
                                         
                                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                            <FormInput
+                                                label="Clock In Start"
+                                                icon="fa-sign-in-alt"
+                                                type="time"
+                                                value={shift.clockInStart}
+                                                onChange={(e) => handleShiftChange(index, 'clockInStart', e.target.value)}
+                                                required
+                                            />
+                                            
+                                            <FormInput
+                                                label="Clock In End"
+                                                icon="fa-sign-in-alt"
+                                                type="time"
+                                                value={shift.clockInEnd}
+                                                onChange={(e) => handleShiftChange(index, 'clockInEnd', e.target.value)}
+                                                required
+                                            />
+                                        </div>
+                                        
+                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                            <FormInput
+                                                label="Clock Out Start"
+                                                icon="fa-sign-out-alt"
+                                                type="time"
+                                                value={shift.clockOutStart}
+                                                onChange={(e) => handleShiftChange(index, 'clockOutStart', e.target.value)}
+                                                required
+                                            />
+                                            
+                                            <FormInput
+                                                label="Clock Out End"
+                                                icon="fa-sign-out-alt"
+                                                type="time"
+                                                value={shift.clockOutEnd}
+                                                onChange={(e) => handleShiftChange(index, 'clockOutEnd', e.target.value)}
+                                                required
+                                            />
+                                        </div>
+                                        
+                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                             <div>
                                                 <FormInput
                                                     label="Late Arrival Deduction"
@@ -366,6 +418,7 @@ const OwnerWorkSettings = ({ workSettings, setWorkSettings }) => {
                                     <p>These settings will be applied to all attendance calculations. Deductions are automatically calculated based on employee check-in and check-out times.</p>
                                     <p className="mt-2">You can create multiple shifts with different time schedules and deduction policies. Enable or disable shifts as needed.</p>
                                     <p className="mt-2">You can also select specific days for each shift to apply. For example, you might have different shifts for weekdays and weekends.</p>
+                                    <p className="mt-2">Clock In/Out Start and End times define the grace periods for attendance. Employees clocking in after Clock In End will be marked late, and those clocking out before Clock Out Start will be marked as leaving early.</p>
                                 </div>
                             </div>
                         </div>
