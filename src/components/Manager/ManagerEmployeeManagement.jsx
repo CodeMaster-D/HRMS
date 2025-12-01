@@ -88,6 +88,22 @@ const FormSelect = ({ label, icon, value, onChange, name, options, className = '
     </div>
 );
 
+// File input with consistent styling
+const FormFileInput = ({ label, icon, value, onChange, name, className = '' }) => (
+    <div className={className}>
+        <label className="flex items-center gap-2 text-sm font-medium text-gray-700 mb-2">
+            <i className={`fas ${icon} text-[#708993] text-xs`}></i> {label}
+        </label>
+        <input 
+            type="file" 
+            name={name}
+            accept="image/jpeg, image/png"
+            onChange={onChange}
+            className="w-full px-4 py-3 bg-white/50 border border-[#708993]/20 rounded-2xl text-gray-800 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-[#708993]/20 file:text-[#708993] hover:file:bg-[#708993]/30 focus:outline-none focus:ring-2 focus:ring-[#708993]/30 focus:border-transparent transition-all duration-200"
+        />
+    </div>
+);
+
 // Employee card component
 const EmployeeCard = ({ employee, isSelected, onClick }) => (
     <div
@@ -120,13 +136,259 @@ const EmployeeCard = ({ employee, isSelected, onClick }) => (
     </div>
 );
 
+// Filter Component
+const FilterPanel = ({ filters, onFilterChange, onResetFilters }) => {
+    const [isExpanded, setIsExpanded] = useState(false);
+
+    return (
+        <GlassCard className="p-4 mb-4">
+            <div className="flex items-center justify-between mb-3">
+                <h3 className="font-semibold text-gray-800 flex items-center gap-2">
+                    <i className="fas fa-filter text-[#708993]"></i>
+                    Filter Karyawan
+                </h3>
+                <div className="flex gap-2">
+                    <ActionButton 
+                        onClick={() => setIsExpanded(!isExpanded)}
+                        variant="ghost"
+                        className="text-xs text-black"
+                    >
+                        <i className={`fas fa-chevron-${isExpanded ? 'up' : 'down'}`}></i>
+                        {isExpanded ? 'Sembunyikan' : 'Tampilkan'}
+                    </ActionButton>
+                    <ActionButton 
+                        onClick={onResetFilters}
+                        variant="secondary"
+                        className="text-xs text-black"
+                    >
+                        <i className="fas fa-refresh"></i>
+                        Reset
+                    </ActionButton>
+                </div>
+            </div>
+
+            {isExpanded && (
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 pt-4 border-t border-[#708993]/10">
+                    <FormInput
+                        label="ID"
+                        icon="fa-hashtag"
+                        name="id"
+                        value={filters.id}
+                        onChange={onFilterChange}
+                    />
+                    <FormInput
+                        label="Account ID"
+                        icon="fa-user-circle"
+                        name="account_id"
+                        value={filters.account_id}
+                        onChange={onFilterChange}
+                    />
+                    <FormInput
+                        label="Nama"
+                        icon="fa-user"
+                        name="name"
+                        value={filters.name}
+                        onChange={onFilterChange}
+                    />
+                    <FormInput
+                        label="NIK"
+                        icon="fa-id-card"
+                        name="nik"
+                        value={filters.nik}
+                        onChange={onFilterChange}
+                    />
+                    <FormInput
+                        label="Telepon"
+                        icon="fa-phone"
+                        name="phone"
+                        value={filters.phone}
+                        onChange={onFilterChange}
+                    />
+                    <FormInput
+                        label="Alamat"
+                        icon="fa-map-marker-alt"
+                        name="address"
+                        value={filters.address}
+                        onChange={onFilterChange}
+                    />
+                    <FormSelect
+                        label="Jenis Kelamin"
+                        icon="fa-venus-mars"
+                        name="gender"
+                        value={filters.gender}
+                        onChange={onFilterChange}
+                        options={[
+                            { value: '', label: 'Semua' },
+                            { value: 'male', label: 'Laki-laki' },
+                            { value: 'female', label: 'Perempuan' }
+                        ]}
+                    />
+                    <FormSelect
+                        label="Agama"
+                        icon="fa-place-of-worship"
+                        name="religion"
+                        value={filters.religion}
+                        onChange={onFilterChange}
+                        options={[
+                            { value: '', label: 'Semua' },
+                            { value: 'Islam', label: 'Islam' },
+                            { value: 'Kristen', label: 'Kristen' },
+                            { value: 'Katolik', label: 'Katolik' },
+                            { value: 'Hindu', label: 'Hindu' },
+                            { value: 'Buddha', label: 'Buddha' },
+                            { value: 'Konghucu', label: 'Konghucu' }
+                        ]}
+                    />
+                    <FormInput
+                        label="Tempat Lahir"
+                        icon="fa-map-marker-alt"
+                        name="birth_place"
+                        value={filters.birth_place}
+                        onChange={onFilterChange}
+                    />
+                    <FormInput
+                        label="Tanggal Lahir"
+                        icon="fa-calendar"
+                        type="date"
+                        name="birth_date"
+                        value={filters.birth_date}
+                        onChange={onFilterChange}
+                    />
+                    <FormInput
+                        label="Posisi"
+                        icon="fa-briefcase"
+                        name="position"
+                        value={filters.position}
+                        onChange={onFilterChange}
+                    />
+                    <FormInput
+                        label="Divisi"
+                        icon="fa-building"
+                        name="division"
+                        value={filters.division}
+                        onChange={onFilterChange}
+                    />
+                    <FormInput
+                        label="Tanggal Mulai Kerja"
+                        icon="fa-calendar-check"
+                        type="date"
+                        name="hired_at"
+                        value={filters.hired_at}
+                        onChange={onFilterChange}
+                    />
+                    <FormSelect
+                        label="Status Karyawan"
+                        icon="fa-shield-alt"
+                        name="employment_status"
+                        value={filters.employment_status}
+                        onChange={onFilterChange}
+                        options={[
+                            { value: '', label: 'Semua' },
+                            { value: 'Active', label: 'Aktif' },
+                            { value: 'Inactive', label: 'Tidak Aktif' },
+                            { value: 'On Leave', label: 'Cuti' }
+                        ]}
+                    />
+                    <FormInput
+                        label="Tanggal Berhenti"
+                        icon="fa-calendar-times"
+                        type="date"
+                        name="resigned_at"
+                        value={filters.resigned_at}
+                        onChange={onFilterChange}
+                    />
+                    <FormSelect
+                        label="Status Aktif"
+                        icon="fa-check-circle"
+                        name="is_active"
+                        value={filters.is_active}
+                        onChange={onFilterChange}
+                        options={[
+                            { value: '', label: 'Semua' },
+                            { value: 'true', label: 'Aktif' },
+                            { value: 'false', label: 'Tidak Aktif' }
+                        ]}
+                    />
+                </div>
+            )}
+        </GlassCard>
+    );
+};
+
 // --- B5. Manajemen Karyawan (CRUD) ---
-const ManagerEmployeeManagement = ({ employees, setEmployees }) => {
+const ManagerEmployeeManagement = ({ employees = [], setEmployees = () => {} }) => {
     const [selectedEmployee, setSelectedEmployee] = useState(null);
     const [isCreating, setIsCreating] = useState(false);
     const [isEditing, setIsEditing] = useState(false);
     const [formData, setFormData] = useState({});
     const [searchTerm, setSearchTerm] = useState('');
+    const [filters, setFilters] = useState({
+        id: '',
+        account_id: '',
+        name: '',
+        nik: '',
+        phone: '',
+        address: '',
+        gender: '',
+        religion: '',
+        birth_place: '',
+        birth_date: '',
+        position: '',
+        division: '',
+        hired_at: '',
+        employment_status: '',
+        resigned_at: '',
+        is_active: ''
+    });
+    
+    // Dummy shift data - replace with actual API call when database is ready
+    const [shifts, setShifts] = useState([
+        {
+            id: 'day-shift',
+            name: 'Day Shift',
+            startTime: '08:00',
+            endTime: '17:00',
+            clockInStart: '07:45',
+            clockInEnd: '08:15',
+            clockOutStart: '16:45',
+            clockOutEnd: '17:15',
+            days: ['monday', 'tuesday', 'wednesday', 'thursday', 'friday'],
+            enabled: true
+        },
+        {
+            id: 'night-shift',
+            name: 'Night Shift',
+            startTime: '22:00',
+            endTime: '06:00',
+            clockInStart: '21:45',
+            clockInEnd: '22:15',
+            clockOutStart: '05:45',
+            clockOutEnd: '06:15',
+            days: ['monday', 'tuesday', 'wednesday', 'thursday', 'friday'],
+            enabled: false
+        }
+    ]);
+    
+    // Fetch shifts from database when component mounts
+    useEffect(() => {
+        // This is where you would fetch shifts from your database
+        // For now, we'll use the dummy data
+        
+        // Example of how you might fetch from an API:
+        /*
+        fetch('/api/shifts')
+            .then(response => response.json())
+            .then(data => {
+                if (data && data.length > 0) {
+                    setShifts(data);
+                }
+            })
+            .catch(error => {
+                console.error('Error fetching shifts:', error);
+                // Keep using dummy data if fetch fails
+            });
+        */
+    }, []);
 
     // Initialize form data when an employee is selected or when creating a new one
     useEffect(() => {
@@ -134,28 +396,101 @@ const ManagerEmployeeManagement = ({ employees, setEmployees }) => {
             setFormData({ 
                 role: 'employee', 
                 status: 'Active', 
-                cutiBalance: 12 
+                cutiBalance: 12,
+                cutiTahunan: 12,
+                agama: 'Kristen',
+                gender: 'male',
+                // Default to first enabled shift
+                shiftId: shifts.find(s => s.enabled)?.id || ''
             });
         } else if (selectedEmployee && isEditing) {
-            setFormData(selectedEmployee);
+            setFormData({
+                ...selectedEmployee,
+                // Ensure shiftId is set, default to first enabled shift if not present
+                shiftId: selectedEmployee.shiftId || shifts.find(s => s.enabled)?.id || ''
+            });
         } else if (!isEditing) {
             setFormData({});
         }
-    }, [selectedEmployee, isEditing, isCreating]);
+    }, [selectedEmployee, isEditing, isCreating, shifts]);
 
-    // Filter employees based on search term
+    if (!Array.isArray(employees)) {
+        console.warn('⚠️ [ManagerEmployeeManagement] employees is not an array:', employees);
+    }
+
+    // Handle filter changes
+    const handleFilterChange = (e) => {
+        const { name, value } = e.target;
+        setFilters(prev => ({
+            ...prev,
+            [name]: value
+        }));
+    };
+
+    // Reset all filters
+    const handleResetFilters = () => {
+        setFilters({
+            id: '',
+            account_id: '',
+            name: '',
+            nik: '',
+            phone: '',
+            address: '',
+            gender: '',
+            religion: '',
+            birth_place: '',
+            birth_date: '',
+            position: '',
+            division: '',
+            hired_at: '',
+            employment_status: '',
+            resigned_at: '',
+            is_active: ''
+        });
+    };
+
+    // Filter employees based on search term and filters
     const filteredEmployees = employees
         .filter(employee => employee.role === 'employee')
-        .filter(employee => 
-            employee.name?.toLowerCase().includes(searchTerm.toLowerCase()) ||
-            employee.nik?.includes(searchTerm) ||
-            employee.division?.toLowerCase().includes(searchTerm.toLowerCase())
-        );
+        .filter(employee => {
+            // Search term filter
+            const searchMatch = 
+                employee.name?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                employee.nik?.includes(searchTerm) ||
+                employee.division?.toLowerCase().includes(searchTerm.toLowerCase());
+
+            // Advanced filters
+            const filterMatch = Object.entries(filters).every(([key, value]) => {
+                if (!value) return true;
+
+                const employeeValue = employee[key] || employee[key === 'religion' ? 'agama' : key] || 
+                                   employee[key === 'employment_status' ? 'status' : key] ||
+                                   employee[key === 'hired_at' ? 'hireAt' : key];
+
+                if (key === 'is_active') {
+                    if (value === 'true') return employee.status === 'Active';
+                    if (value === 'false') return employee.status !== 'Active';
+                }
+
+                if (typeof employeeValue === 'string') {
+                    return employeeValue.toLowerCase().includes(value.toLowerCase());
+                }
+
+                return String(employeeValue) === value;
+            });
+
+            return searchMatch && filterMatch;
+        });
 
     // --- Handlers ---
     const handleInputChange = (e) => {
-        const { name, value } = e.target;
-        setFormData(prev => ({ ...prev, [name]: value }));
+        const { name, value, type } = e.target;
+        if (type === 'file') {
+            // Handle file input separately
+            setFormData(prev => ({ ...prev, [name]: e.target.files[0] }));
+        } else {
+            setFormData(prev => ({ ...prev, [name]: value }));
+        }
     };
 
     const handleSelectEmployee = (employee) => {
@@ -165,17 +500,27 @@ const ManagerEmployeeManagement = ({ employees, setEmployees }) => {
     };
 
     const handleCreateEmployee = () => {
-        if (!formData.name || !formData.nik) {
-            showSwal('Error', 'Nama dan NIK wajib diisi.', 'error');
+        if (!formData.name || !formData.nik || !formData.password) {
+            showSwal('Error', 'Nama, NIK, dan Password wajib diisi.', 'error');
             return;
         }
+        
+        // Get shift details from shifts array
+        const selectedShift = shifts.find(s => s.id === formData.shiftId);
         
         const newEmployee = {
             ...formData,
             id: Date.now(),
             joinDate: new Date().toLocaleDateString('id-ID'),
             currentMonthAttendance: [],
-            attendancePhotos: []
+            attendancePhotos: [],
+            // Store shift details for easy access
+            shift: selectedShift ? {
+                id: selectedShift.id,
+                name: selectedShift.name,
+                startTime: selectedShift.startTime,
+                endTime: selectedShift.endTime
+            } : null
         };
         
         setEmployees(prev => [...prev, newEmployee]);
@@ -184,12 +529,26 @@ const ManagerEmployeeManagement = ({ employees, setEmployees }) => {
     };
 
     const handleUpdateEmployee = () => {
+        // Get shift details from shifts array
+        const selectedShift = shifts.find(s => s.id === formData.shiftId);
+        
+        const updatedEmployee = {
+            ...formData,
+            // Update shift details
+            shift: selectedShift ? {
+                id: selectedShift.id,
+                name: selectedShift.name,
+                startTime: selectedShift.startTime,
+                endTime: selectedShift.endTime
+            } : null
+        };
+        
         setEmployees(prevEmployees =>
             prevEmployees.map(emp =>
-                emp.id === selectedEmployee.id ? { ...formData } : emp
+                emp.id === selectedEmployee.id ? updatedEmployee : emp
             )
         );
-        setSelectedEmployee({ ...formData });
+        setSelectedEmployee(updatedEmployee);
         showSwal('Berhasil', `Data ${formData.name} berhasil diperbarui.`, 'success');
         setIsEditing(false);
     };
@@ -236,7 +595,7 @@ const ManagerEmployeeManagement = ({ employees, setEmployees }) => {
                     required
                 />
                 <FormInput
-                    label="Nama Lengkap"
+                    label="Name"
                     icon="fa-user"
                     name="name"
                     value={formData.name}
@@ -244,8 +603,102 @@ const ManagerEmployeeManagement = ({ employees, setEmployees }) => {
                     required
                 />
                 <FormInput
-                    label="Divisi"
+                    label="Password"
+                    icon="fa-lock"
+                    type="password"
+                    name="password"
+                    value={formData.password}
+                    onChange={handleInputChange}
+                    required
+                />
+                <FormSelect
+                    label="Role"
+                    icon="fa-user-tag"
+                    name="role"
+                    value={formData.role}
+                    onChange={handleInputChange}
+                    options={[
+                        { value: 'employee', label: 'Employee' },
+                        { value: 'manager', label: 'Manager' },
+                        { value: 'owner', label: 'Owner' },
+                        { value: 'supervisor', label: 'Supervisor' },
+                        { value: 'superadmin', label: 'Superadmin' }
+                    ]}
+                />
+                <FormSelect
+                    label="Gender"
+                    icon="fa-venus-mars"
+                    name="gender"
+                    value={formData.gender}
+                    onChange={handleInputChange}
+                    options={[
+                        { value: 'male', label: 'Male' },
+                        { value: 'female', label: 'Female' }
+                    ]}
+                />
+                <FormSelect
+                    label="Religion"
+                    icon="fa-place-of-worship"
+                    name="agama"
+                    value={formData.agama}
+                    onChange={handleInputChange}
+                    options={[
+                        { value: 'Islam', label: 'Islam' },
+                        { value: 'Kristen', label: 'Kristen' },
+                        { value: 'Katolik', label: 'Katolik' },
+                        { value: 'Hindu', label: 'Hindu' },
+                        { value: 'Buddha', label: 'Buddha' },
+                        { value: 'Konghucu', label: 'Konghucu' }
+                    ]}
+                />
+                <FormInput
+                    label="Birth Place"
+                    icon="fa-map-marker-alt"
+                    name="birthPlace"
+                    value={formData.birthPlace}
+                    onChange={handleInputChange}
+                />
+                <FormInput
+                    label="Birth Date"
+                    icon="fa-calendar"
+                    type="date"
+                    name="birthDate"
+                    value={formData.birthDate}
+                    onChange={handleInputChange}
+                />
+                <FormFileInput
+                    label="Profile Photo"
+                    icon="fa-camera"
+                    name="profile"
+                    value={formData.profile}
+                    onChange={handleInputChange}
+                />
+                <FormInput
+                    label="Position"
                     icon="fa-briefcase"
+                    name="position"
+                    value={formData.position}
+                    onChange={handleInputChange}
+                />
+                <FormInput
+                    label="Hire Date"
+                    icon="fa-calendar-check"
+                    type="date"
+                    name="hireAt"
+                    value={formData.hireAt}
+                    onChange={handleInputChange}
+                />
+                <FormInput
+                    label="Resigned Date"
+                    icon="fa-calendar-times"
+                    type="date"
+                    name="resignedAt"
+                    value={formData.resignedAt}
+                    onChange={handleInputChange}
+                />
+                <FormInput
+                    label="Division"
+                    icon="fa-building"
                     name="division"
                     value={formData.division}
                     onChange={handleInputChange}
@@ -259,7 +712,7 @@ const ManagerEmployeeManagement = ({ employees, setEmployees }) => {
                     onChange={handleInputChange}
                 />
                 <FormInput
-                    label="Nomor Telepon"
+                    label="Phone Number"
                     icon="fa-phone"
                     type="tel"
                     name="phone"
@@ -278,10 +731,27 @@ const ManagerEmployeeManagement = ({ employees, setEmployees }) => {
                         { value: 'On Leave', label: 'On Leave' }
                     ]}
                 />
+                {/* Shift Selection */}
+                <FormSelect
+                    label="Work Shift"
+                    icon="fa-clock"
+                    name="shiftId"
+                    value={formData.shiftId || ''}
+                    onChange={handleInputChange}
+                    options={[
+                        { value: '', label: 'Select a shift' },
+                        ...shifts
+                            .filter(shift => shift.enabled)
+                            .map(shift => ({
+                                value: shift.id,
+                                label: `${shift.name} (${shift.startTime} - ${shift.endTime})`
+                            }))
+                    ]}
+                />
             </div>
             
             <FormTextarea
-                label="Alamat"
+                label="Address"
                 icon="fa-map-marker-alt"
                 name="address"
                 value={formData.address}
@@ -291,11 +761,20 @@ const ManagerEmployeeManagement = ({ employees, setEmployees }) => {
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <FormInput
-                    label="Saldo Cuti (Hari)"
+                    label="leave balance (days)"
                     icon="fa-calendar-alt"
                     type="number"
                     name="cutiBalance"
                     value={formData.cutiBalance}
+                    onChange={handleInputChange}
+                    min="0"
+                />
+                <FormInput
+                    label="Annual Leave (Days)"
+                    icon="fa-calendar-check"
+                    type="number"
+                    name="cutiTahunan"
+                    value={formData.cutiTahunan}
                     onChange={handleInputChange}
                     min="0"
                 />
@@ -343,6 +822,25 @@ const ManagerEmployeeManagement = ({ employees, setEmployees }) => {
                     </div>
                 </div>
             </div>
+            <div className="grid grid-cols-2 gap-4 text-sm">
+                <div>
+                    <p className="font-medium text-gray-500 text-xs">Agama</p>
+                    <p className="text-gray-800">{selectedEmployee.agama || '-'}</p>
+                </div>
+                <div>
+                    <p className="font-medium text-gray-500 text-xs">Cuti Tahunan</p>
+                    <p className="text-gray-800">{selectedEmployee.cutiTahunan || 0} hari</p>
+                </div>
+                <div>
+                    <p className="font-medium text-gray-500 text-xs">Work Shift</p>
+                    <p className="text-gray-800">
+                        {selectedEmployee.shift ? 
+                            `${selectedEmployee.shift.name} (${selectedEmployee.shift.startTime} - ${selectedEmployee.shift.endTime})` : 
+                            'Not assigned'
+                        }
+                    </p>
+                </div>
+            </div>
             {selectedEmployee.address && (
                 <div>
                     <p className="font-medium text-gray-500 text-xs mb-1">Alamat</p>
@@ -374,6 +872,13 @@ const ManagerEmployeeManagement = ({ employees, setEmployees }) => {
                 </ActionButton>
             </div>
 
+            {/* Filter Panel */}
+            <FilterPanel 
+                filters={filters}
+                onFilterChange={handleFilterChange}
+                onResetFilters={handleResetFilters}
+            />
+
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
                 {/* Employee List */}
                 <GlassCard className="lg:col-span-1 p-5">
@@ -395,16 +900,26 @@ const ManagerEmployeeManagement = ({ employees, setEmployees }) => {
                             <div className="text-center py-8 text-gray-500">
                                 <i className="fas fa-users text-3xl mb-3 text-gray-300"></i>
                                 <p className="text-sm">Tidak ada karyawan ditemukan</p>
+                                {(searchTerm || Object.values(filters).some(filter => filter !== '')) && (
+                                    <p className="text-xs text-gray-400 mt-1">
+                                        Coba ubah pencarian atau filter
+                                    </p>
+                                )}
                             </div>
                         ) : (
-                            filteredEmployees.map(employee => (
-                                <EmployeeCard
-                                    key={employee.id}
-                                    employee={employee}
-                                    isSelected={selectedEmployee?.id === employee.id}
-                                    onClick={() => handleSelectEmployee(employee)}
-                                />
-                            ))
+                            <>
+                                <div className="text-xs text-gray-500 mb-2">
+                                    Menampilkan {filteredEmployees.length} karyawan
+                                </div>
+                                {filteredEmployees.map(employee => (
+                                    <EmployeeCard
+                                        key={employee.id}
+                                        employee={employee}
+                                        isSelected={selectedEmployee?.id === employee.id}
+                                        onClick={() => handleSelectEmployee(employee)}
+                                    />
+                                ))}
+                            </>
                         )}
                     </div>
                 </GlassCard>
