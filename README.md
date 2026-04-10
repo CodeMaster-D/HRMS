@@ -48,13 +48,16 @@ Make sure you have [Node.js](https://nodejs.org/en/) (v16 or higher) and `npm` (
 
 ### Installation
 
-1.  **Clone the repository**
+1.  **Import Database** [Import this File](database\hrms.sql)
+
+
+2.  **Clone the repository**
     ```bash
     git clone https://github.com/CodeMaster-D/HRMS.git
     cd HRMS
     ```
 
-2.  **Install dependencies**
+3.  **Install dependencies**
     ```bash
     npm install
     ```
