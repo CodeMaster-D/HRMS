@@ -50,8 +50,8 @@ Make sure you have [Node.js](https://nodejs.org/en/) (v16 or higher) and `npm` (
 
 1.  **Clone the repository**
     ```bash
-    git clone https://github.com/your-username/hrms-frontend.git
-    cd hrms-frontend
+    git clone https://github.com/CodeMaster-D/HRMS.git
+    cd HRMS
     ```
 
 2.  **Install dependencies**
